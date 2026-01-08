@@ -1,0 +1,22 @@
+@media print {
+  body {
+    background: white;
+  }
+
+  .slide-container {
+    page-break-after: always;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .bg-grid,
+  .tech-shape {
+    display: none;
+  }
+
+  p, li {
+    color: black;
+  }
+}
