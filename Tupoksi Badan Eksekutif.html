@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUPOKSI BADAN EKSEKUTIF HMIF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+/* 1. SETUP & THEME */
+
+:root {
+    --bg-dark: #020617; /* Very dark blue/black */
+    --bg-card: #0f172a; /* Slate 900 */
+    --accent-primary: #06b6d4; /* Cyan 500 */
+    --accent-secondary: #3b82f6; /* Blue 500 */
+    --text-main: #f1f5f9; /* Slate 100 */
+    --text-muted: #94a3b8; /* Slate 400 */
+    --gradient-blue: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 0;
+  place-items: center;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+}
+
+.slide-container {
+  background-color: var(--bg-dark);
+  border-radius: 24px;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1), 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 50px 70px;
+  position: relative;
+  width: 1280px;
+}
+
+/* 1.1 BACKGROUND EFFECTS */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slide-container::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Abstract Grid Overlay */
+.bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.slide-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. TYPOGRAPHY */
+
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 64px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slide-title {
+    font-size: 42px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slide-title::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 42px;
+    background: var(--gradient-blue);
+    border-radius: 4px;
+}
+
+p, li {
+  color: var(--text-muted);
+  font-size: 18px; /* Slightly smaller to fit more text */
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+strong {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+/* 3. LAYOUTS */
+
+.content-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  height: 100%;
+}
+
+.full-text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.narrative-box {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+    border-left: 3px solid var(--accent-secondary);
+}
+
+.visual-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(15, 23, 42, 0.5) 0%, transparent 70%);
+    border-radius: 16px;
+    position: relative;
+}
+
+/* Abstract Tech Shape */
+.tech-shape {
+    width: 250px;
+    height: 250px;
+    border: 2px solid rgba(6, 182, 212, 0.3);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 20s linear infinite;
+}
+
+.tech-shape::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 2px dashed rgba(59, 130, 246, 0.4);
+    border-radius: 50%;
+    animation: rotate-reverse 15s linear infinite;
+}
+
+.tech-icon {
+    font-size: 80px;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 2;
+}
+
+@keyframes rotate { 100% { transform: rotate(360deg); } }
+@keyframes rotate-reverse { 100% { transform: rotate(-360deg); } }
+
+
+/* List Styling */
+ul.custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.custom-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+ul.custom-list li::before {
+    content: '◈';
+    color: var(--accent-primary);
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    top: 3px;
+}
+
+/* Grid Layouts for Departments */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    height: 100%;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    height: 100%;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--accent-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.card h3 {
+    font-size: 20px;
+    color: var(--text-main);
+}
+
+/* Title Slide */
+.title-content {
+    text-align: center;
+    z-index: 2;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    padding: 60px;
+    border-radius: 20px;
+    background: rgba(2, 6, 23, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.sub-title {
+    color: var(--accent-primary);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.footer-line {
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-blue);
+    margin: 30px auto 0;
+    border-radius: 2px;
+}
+
+/* Scrollbar for overflowing text */
+.scrollable {
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+.scrollable::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+.scrollable::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area" style="justify-content: center; align-items: center;">
+        <div class="title-content">
+            <p class="sub-title">TUPOKSI BADAN EKSEKUTIF</p>
+            <h1>HIMPUNAN MAHASISWA<br>INFORMATIKA</h1>
+            <p style="margin-top: 20px; font-size: 20px;">Tugas Pokok dan Fungsi Struktural Organisasi</p>
+            <div class="footer-line"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 2: KAHIM -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">1. KETUA HIMPUNAN (KAHIM)</h2>
+        <div class="two-column">
+            <div class="full-text-column">
+                <div class="narrative-box">
+                    <p style="margin:0; font-size: 16px;">
+                        "Pemegang mandat tertinggi eksekutif yang bertanggung jawab penuh atas arah gerak, kebijakan strategis, dan keberlangsungan organisasi. Ketua Himpunan berperan sebagai representasi resmi HMIF dalam menjalin hubungan diplomatik baik internal maupun eksternal, serta menjadi pengambil keputusan final dalam dinamika organisasi."
+                    </p>
+                </div>
+                <div class="scrollable">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 18px;">Tugas Pokok & Fungsi:</h3>
+                    <ul class="custom-list">
+                        <li><strong>Kepemimpinan Strategis:</strong> Memimpin dan mengkoordinasikan pelaksanaan roda organisasi secara menyeluruh sesuai AD/ART dan GBHO.</li>
+                        <li><strong>Pengambilan Keputusan:</strong> Menentukan kebijakan strategis dan memberikan solusi atas permasalahan krusial organisasi.</li>
+                        <li><strong>Representasi:</strong> Bertindak sebagai wakil resmi HMIF dalam forum birokrasi kampus (Prodi/Fakultas) maupun forum eksternal.</li>
+                        <li><strong>Otoritas Administratif:</strong> Meninjau dan menyetujui dokumen strategis tingkat tinggi (Proposal Kegiatan Besar dan Laporan Pertanggungjawaban/LPJ).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-column">
+                <div class="tech-shape">
+                    <i class="fa-solid fa-chess-king tech-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: SEKJEN -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">2. SEKRETARIS JENDERAL</h2>
+        <div class="two-column">
+            <div class="full-text-column">
+                <div class="narrative-box">
+                    <p style="margin:0; font-size: 16px;">
+                        "Pejabat eksekutif yang bertindak sebagai kepala operasional organisasi. Sekretaris Jenderal bertanggung jawab menerjemahkan visi strategis Ketua Himpunan menjadi langkah taktis di lapangan, memastikan sinergi antar-departemen, serta mengawal ketepatan waktu pelaksanaan program kerja."
+                    </p>
+                </div>
+                <div class="scrollable">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 18px;">Tugas Pokok & Fungsi:</h3>
+                    <ul class="custom-list">
+                        <li><strong>Koordinasi Operasional:</strong> Mengawasi dan mengkoordinasikan pelaksanaan program kerja seluruh departemen agar berjalan efektif di lapangan.</li>
+                        <li><strong>Penjamin Mutu (Quality Control):</strong> Memastikan seluruh kepanitiaan dan departemen bekerja sesuai perencanaan (timeline) dan target yang ditetapkan.</li>
+                        <li><strong>Jembatan Internal:</strong> Menjadi penghubung utama arus komunikasi antar-departemen untuk mencegah tumpang tindih kegiatan.</li>
+                        <li><strong>Otoritas Administratif Teknis:</strong> Memverifikasi dan menyetujui dokumen operasional seperti Berita Acara (BA), Kerangka Acuan Kerja (KAK), dan Surat Pengajuan Dana (SPD).</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="visual-column">
+                <div class="tech-shape">
+                    <i class="fa-solid fa-gavel tech-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 4: KESEKRETARIATAN -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">3. KESEKRETARIATAN</h2>
+        <div class="narrative-box">
+            <p style="margin:0;">
+                "Unit kerja yang berfungsi sebagai pusat data, arsip, dan administrasi organisasi. Kesekretariatan memastikan tertib administrasi, alur surat-menyurat yang rapi, serta mendistribusikan dukungan administratif secara spesifik ke setiap departemen melalui sistem matriks sekretaris."
+            </p>
+        </div>
+        <p style="margin-bottom: 20px;"><strong>Tupoksi Umum:</strong> Mengelola pengarsipan dokumen, notulensi rapat, surat-menyurat, dan inventarisasi data organisasi.</p>
+        
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                    <h3>Sekretaris Umum 1</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Bertanggung jawab atas korespondensi umum.</li>
+                    <li>Mengampu pendampingan administrasi khusus untuk <strong>Departemen PSDA</strong> dan <strong>Departemen Eksternal</strong>.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-file-pen"></i></div>
+                    <h3>Sekretaris Umum 2</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Membantu tugas operasional Sekum 1.</li>
+                    <li>Mengampu pendampingan administrasi khusus untuk <strong>Departemen Internal</strong>, <strong>Departemen Kominfo</strong>, dan <strong>Departemen Keprofesian</strong>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: KEBENDAHARAAN -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">4. KEBENDAHARAAN</h2>
+        <div class="narrative-box">
+             <p style="margin:0;">
+                "Unit kerja yang bertanggung jawab atas stabilitas finansial organisasi melalui dua fungsi utama: pengelolaan arus kas (fiskal) dan pengembangan pendapatan (moneter). Kebendaharaan memastikan akuntabilitas penggunaan dana sekaligus menciptakan kemandirian finansial himpunan."
+            </p>
+        </div>
+        
+        <div class="grid-3">
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-vault"></i></div>
+                    <h3>Bendahara Umum</h3>
+                </div>
+                <p>Perancang strategi keuangan jangka panjang dan pengawas seluruh aset keuangan.</p>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                    <h3>Bendahara 1</h3>
+                </div>
+                <p style="color: var(--accent-primary); font-size: 14px; text-transform: uppercase; font-weight: 700;">Expenditure & Treasury</p>
+                <ul class="custom-list">
+                    <li>Fokus pada manajemen kas keluar (pengeluaran).</li>
+                    <li>Mengatur alur pencairan dana program kerja dan pencatatan pembukuan harian.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h3>Bendahara 2</h3>
+                </div>
+                <p style="color: var(--accent-primary); font-size: 14px; text-transform: uppercase; font-weight: 700;">Revenue & Business/BUMH</p>
+                <ul class="custom-list">
+                    <li>Fokus pada manajemen kas masuk (pendapatan).</li>
+                    <li>Mengelola Biro Usaha Milik Himpunan (BUMH) meliputi penjualan merchandise, atribut, dll.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: DEPT INTERNAL -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">5. DEPARTEMEN INTERNAL</h2>
+        <div class="narrative-box">
+             <p style="margin:0;">
+                "Departemen yang berfokus pada pembangunan iklim organisasi yang kondusif. Bertugas menjaga soliditas, kesejahteraan, dan rasa memiliki anggota terhadap himpunan, serta memfasilitasi penyaluran minat bakat non-akademik."
+            </p>
+        </div>
+        
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-users-rays"></i></div>
+                    <h3>Divisi Harmonisasi</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Melakukan pendataan database anggota aktif.</li>
+                    <li>Menjadi fasilitator komunikasi antara anggota dengan pengurus, serta kolaborasi dengan Senator angkatan.</li>
+                    <li>Menangani resolusi konflik internal jika terjadi gesekan antar-anggota.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3>Divisi Seni & Olahraga</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Mewadahi aktualisasi minat dan bakat anggota di bidang seni (musik, rupa, dsb) dan olahraga (e-sport, futsal, dsb).</li>
+                    <li>Menyelenggarakan kegiatan rekreasional untuk meningkatkan keakraban (bonding).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: DEPT EKSTERNAL -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">6. DEPARTEMEN EKSTERNAL</h2>
+        <div class="narrative-box">
+             <p style="margin:0;">
+                "Departemen yang berfokus dalam membangun citra, jejaring, dan diplomasi dengan pihak luar. Departemen ini bertanggung jawab memperluas eksistensi HMIF melalui kerjasama strategis dan pengabdian masyarakat."
+            </p>
+        </div>
+        
+        <div class="grid-3">
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Divisi Intra Kampus</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Membangun hubungan diplomatis dengan lembaga internal kampus (himpunan mahasiswa prodi lain).</li>
+                    <li>Mengawal isu-isu kebijakan kampus yang berdampak pada mahasiswa informatika.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+                    <h3>Divisi Ekstra Kampus</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Menjalin relasi dengan aliansi mahasiswa IT nasional dan himpunan universitas lain.</li>
+                    <li>Membangun kerjasama partnership dengan pihak swasta, instansi pemerintah, dan Ikatan Alumni.</li>
+                </ul>
+            </div>
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Divisi Sosmas</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Mengimplementasikan Tri Dharma Perguruan Tinggi poin pengabdian masyarakat.</li>
+                    <li>Menyelenggarakan kegiatan bakti sosial, desa binaan IT, atau edukasi teknologi untuk masyarakat umum.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8: DEPT KEPROFESIAN -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">7. DEPARTEMEN KEPROFESIAN</h2>
+        <div class="narrative-box">
+             <p style="margin:0;">
+                "Departemen yang berfungsi sebagai akselerator kompetensi akademik dan profesionalisme anggota. Bertugas mempersiapkan anggota HMIF agar memiliki keunggulan kompetitif di bidang keilmuan informatika dan kesiapan karier."
+            </p>
+        </div>
+        
+        <div class="grid-3">
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Divisi Akademik & Beasiswa</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Memfasilitasi kegiatan penunjang akademik seperti tutorial teman sebaya dan bank soal ujian.</li>
+                    <li>Menghimpun dan mendistribusikan informasi beasiswa serta kesempatan pertukaran pelajar.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Divisi Technopreneur</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Mengembangkan jiwa kewirausahaan berbasis teknologi (startup) pada anggota.</li>
+                    <li>Menyediakan informasi lomba bisnis TIK, hackathon, dan peluang freelance.</li>
+                </ul>
+            </div>
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3>Divisi Peningkatan Skill (PK)</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Berkolaborasi dengan Prodi dalam penyelenggaraan pameran karya/Tugas Besar.</li>
+                    <li>Menyelenggarakan seminar, webinar, dan workshop sertifikasi keahlian teknologi terkini.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 9: DEPT PSDA -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">8. DEPARTEMEN PSDA</h2>
+        <div class="narrative-box">
+             <p style="margin:0;">
+                "Departemen yang berperan sebagai pusat kaderisasi dan pendidikan karakter. Bertanggung jawab menjamin keberlanjutan regenerasi organisasi melalui sistem pembinaan yang terstruktur, bertahap, dan berkelanjutan."
+            </p>
+        </div>
+        <h3 style="margin-bottom: 20px;">Jenjang Kaderisasi:</h3>
+        
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>LDOP</h3>
+                </div>
+                <p style="color: var(--accent-primary); font-size: 14px; font-weight: 700;">Latihan Dasar Organisasi Kepemimpinan</p>
+                <ul class="custom-list">
+                    <li>Fase inisiasi/tahap awal kaderisasi.</li>
+                    <li>Menanamkan nilai fundamental organisasi, pemahaman struktural, dan dasar kepemimpinan dengan pendekatan berbasis proyek (project-based).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-stairs"></i></div>
+                    <h3>PTKOM</h3>
+                </div>
+                <p style="color: var(--accent-primary); font-size: 14px; font-weight: 700;">Pelatihan Tata Kelola Organisasi Modern</p>
+                <ul class="custom-list">
+                    <li>Fase lanjutan pembinaan anggota muda.</li>
+                    <li>Mengintegrasikan materi kepemimpinan tingkat lanjut (advanced leadership) dan manajemen organisasi modern untuk mencetak calon pengurus masa depan.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 10: DEPT KOMINFO -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area">
+        <h2 class="slide-title">9. DEPARTEMEN KOMINFO</h2>
+        <div class="narrative-box">
+             <p style="margin:0;">
+                "Pusat pengelolaan media dan informasi yang berfungsi membentuk citra positif (branding) himpunan. Departemen ini memastikan seluruh informasi tersampaikan secara efektif kepada publik melalui kanal digital yang kreatif dan inovatif."
+            </p>
+        </div>
+        
+        <div class="grid-3">
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <h3>Divisi Publikasi & Dokumentasi</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Bertanggung jawab mendokumentasikan seluruh agenda kegiatan himpunan (foto/video).</li>
+                    <li>Mengelola jadwal publikasi dan memastikan distribusi informasi kegiatan sampai ke target audiens.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                    <h3>Divisi Konten Kreatif</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Memproduksi konten edukatif, informatif, dan hiburan berbasis teknologi (Podcast, Video Diskusi, Artikel IT).</li>
+                    <li>Mengelola strategi konten media sosial (Instagram, TikTok, LinkedIn, Website).</li>
+                </ul>
+            </div>
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>Divisi Dekraf</h3>
+                </div>
+                <ul class="custom-list">
+                    <li>Menyediakan layanan desain grafis visual untuk kebutuhan branding himpunan.</li>
+                    <li>Membuat aset visual poster, banner, dan feeds media sosial yang estetis dan profesional.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 11: CLOSING -->
+<div class="slide-container">
+    <div class="bg-grid"></div>
+    <div class="content-area" style="justify-content: center; align-items: center;">
+        <div class="tech-shape" style="width: 150px; height: 150px; margin-bottom: 30px;">
+             <i class="fa-solid fa-check tech-icon" style="font-size: 50px;"></i>
+        </div>
+        <h1 style="font-size: 80px;">TERIMA KASIH</h1>
+        <p style="margin-top: 20px;">HMIF - Himpunan Mahasiswa Informatika</p>
+        <div style="display: flex; gap: 30px; margin-top: 40px;">
+             <div style="display: flex; align-items: center; gap: 10px; color: var(--accent-primary);">
+                <i class="fa-brands fa-instagram fa-2x"></i>
+                <span style="font-size: 24px;">@hmif_official</span>
+            </div>
+             <div style="display: flex; align-items: center; gap: 10px; color: var(--accent-primary);">
+                <i class="fa-solid fa-globe fa-2x"></i>
+                <span style="font-size: 24px;">hmif.org</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
