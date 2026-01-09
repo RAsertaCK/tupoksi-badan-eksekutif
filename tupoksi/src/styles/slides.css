@@ -98,3 +98,18 @@
     rotate 25s linear infinite,
     glowPulse 4s ease-in-out infinite;
 }
+
+@keyframes sectionEnter {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-container {
+  animation: sectionEnter 0.9s ease-out both;
+}

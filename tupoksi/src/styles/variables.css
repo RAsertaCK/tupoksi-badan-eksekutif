@@ -18,3 +18,21 @@
     #3b82f6 100%
   );
 }
+
+/* === LIGHT THEME === */
+[data-theme="light"] {
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+
+  --text-main: #020617;
+  --text-muted: #475569;
+
+  --accent-primary: #0284c7;
+  --accent-secondary: #2563eb;
+
+  --gradient-blue: linear-gradient(
+    135deg,
+    #0284c7 0%,
+    #2563eb 100%
+  );
+}

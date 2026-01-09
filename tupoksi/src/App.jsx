@@ -9,10 +9,12 @@ import Keprofesian from "./sections/Keprofesian";
 import Psda from "./sections/Psda";
 import Kominfo from "./sections/Kominfo";
 import Closing from "./sections/Closing";
+import ThemeToggle from "./components/ThemeToggle";
 
-export default function App() {
+function App() {
   return (
     <>
+      <ThemeToggle />
       <Hero />
       <Kahim />
       <Sekjen />

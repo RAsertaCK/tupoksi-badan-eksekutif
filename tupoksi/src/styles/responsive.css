@@ -35,3 +35,80 @@
     font-size: 48px;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px 0;
+  }
+
+  .slide-container {
+    width: 100%;
+    height: auto;
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .visual-column {
+    order: 2;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  .slide-title {
+    font-size: 26px;
+  }
+
+  p,
+  li {
+    font-size: 15px;
+  }
+
+  .sub-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-shape {
+    width: 160px;
+    height: 160px;
+  }
+
+  .tech-shape::before {
+    width: 120px;
+    height: 120px;
+  }
+
+  .tech-icon {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .closing-center h1 {
+    font-size: 42px;
+  }
+
+  .closing-center span {
+    font-size: 18px;
+  }
+}
