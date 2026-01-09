@@ -1,41 +1,71 @@
 import Slide from "../components/Slide";
-import Card from "../components/Card";
 
 export default function Keprofesian() {
   return (
     <Slide>
-      <h2 className="slide-title">7. DEPARTEMEN KEPROFESIAN</h2>
+      <div className="content-area">
+        <h2 className="slide-title">7. DEPARTEMEN KEPROFESIAN</h2>
 
-      <div className="grid-3">
-        <Card
-          icon={<i className="fa-solid fa-graduation-cap" />}
-          title="Akademik & Beasiswa"
-        >
-          <ul className="custom-list">
-            <li>Tutorial & bank soal.</li>
-            <li>Informasi beasiswa.</li>
-          </ul>
-        </Card>
+        <div className="narrative-box">
+          <p style={{ margin: 0 }}>
+            "Departemen yang berfungsi sebagai akselerator kompetensi akademik dan
+            profesionalisme anggota. Bertugas mempersiapkan anggota HMIF agar
+            memiliki keunggulan kompetitif dan kesiapan karier."
+          </p>
+        </div>
 
-        <Card
-          icon={<i className="fa-solid fa-briefcase" />}
-          title="Technopreneur"
-        >
-          <ul className="custom-list">
-            <li>Startup & kewirausahaan IT.</li>
-            <li>Hackathon & freelance.</li>
-          </ul>
-        </Card>
+        <div className="grid-3">
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon">
+                <i className="fa-solid fa-graduation-cap"></i>
+              </div>
+              <h3>Divisi Akademik & Beasiswa</h3>
+            </div>
+            <ul className="custom-list">
+              <li>
+                Fasilitasi kegiatan akademik seperti tutor sebaya dan bank soal.
+              </li>
+              <li>
+                Distribusi informasi beasiswa dan pertukaran pelajar.
+              </li>
+            </ul>
+          </div>
 
-        <Card
-          icon={<i className="fa-solid fa-arrow-trend-up" />}
-          title="Peningkatan Skill"
-        >
-          <ul className="custom-list">
-            <li>Pameran karya.</li>
-            <li>Workshop & sertifikasi.</li>
-          </ul>
-        </Card>
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon">
+                <i className="fa-solid fa-briefcase"></i>
+              </div>
+              <h3>Divisi Technopreneur</h3>
+            </div>
+            <ul className="custom-list">
+              <li>
+                Pengembangan kewirausahaan berbasis teknologi.
+              </li>
+              <li>
+                Informasi lomba bisnis IT, hackathon, dan freelance.
+              </li>
+            </ul>
+          </div>
+
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon">
+                <i className="fa-solid fa-arrow-trend-up"></i>
+              </div>
+              <h3>Divisi Peningkatan Skill (PK)</h3>
+            </div>
+            <ul className="custom-list">
+              <li>
+                Kolaborasi pameran karya dan tugas besar.
+              </li>
+              <li>
+                Seminar, webinar, dan workshop sertifikasi teknologi.
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </Slide>
   );

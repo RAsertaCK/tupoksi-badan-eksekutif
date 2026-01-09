@@ -1,32 +1,47 @@
 import Slide from "../components/Slide";
-import Card from "../components/Card";
 
 export default function Internal() {
   return (
     <Slide>
-      <h2 className="slide-title">5. DEPARTEMEN INTERNAL</h2>
+      <div className="content-area">
+        <h2 className="slide-title">5. DEPARTEMEN INTERNAL</h2>
 
-      <div className="grid-2">
-        <Card
-          icon={<i className="fa-solid fa-users-rays" />}
-          title="Divisi Harmonisasi"
-        >
-          <ul className="custom-list">
-            <li>Database anggota aktif.</li>
-            <li>Fasilitator komunikasi internal.</li>
-            <li>Resolusi konflik anggota.</li>
-          </ul>
-        </Card>
+        <div className="narrative-box">
+          <p style={{ margin: 0 }}>
+            "Departemen yang berfokus pada pembangunan iklim organisasi yang
+            kondusif. Bertugas menjaga soliditas, kesejahteraan, dan rasa memiliki
+            anggota terhadap himpunan."
+          </p>
+        </div>
 
-        <Card
-          icon={<i className="fa-solid fa-gamepad" />}
-          title="Divisi Seni & Olahraga"
-        >
-          <ul className="custom-list">
-            <li>Wadah minat bakat seni dan olahraga.</li>
-            <li>Kegiatan bonding dan rekreasi.</li>
-          </ul>
-        </Card>
+        <div className="grid-2">
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon">
+                <i className="fa-solid fa-users-rays"></i>
+              </div>
+              <h3>Divisi Harmonisasi</h3>
+            </div>
+            <ul className="custom-list">
+              <li>Pendataan database anggota aktif.</li>
+              <li>Fasilitator komunikasi anggota & pengurus.</li>
+              <li>Resolusi konflik internal.</li>
+            </ul>
+          </div>
+
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon">
+                <i className="fa-solid fa-gamepad"></i>
+              </div>
+              <h3>Divisi Seni & Olahraga</h3>
+            </div>
+            <ul className="custom-list">
+              <li>Wadah minat bakat seni & olahraga.</li>
+              <li>Kegiatan rekreasional dan bonding.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </Slide>
   );

@@ -45,3 +45,56 @@
   background: var(--gradient-blue);
   border-radius: 4px;
 }
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.slide-container {
+  animation: slideFadeIn 0.8s ease both;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.tech-shape {
+  animation: rotate 25s linear infinite;
+}
+
+.tech-shape::before {
+  animation: rotate-reverse 18s linear infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(6, 182, 212, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(6, 182, 212, 0.0);
+  }
+}
+
+.tech-shape {
+  animation:
+    rotate 25s linear infinite,
+    glowPulse 4s ease-in-out infinite;
+}

@@ -35,3 +35,17 @@
   justify-content: center;
   position: relative;
 }
+
+.closing-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.closing-center .tech-shape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
