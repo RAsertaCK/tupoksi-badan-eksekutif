@@ -113,3 +113,16 @@
 .slide-container {
   animation: sectionEnter 0.9s ease-out both;
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}

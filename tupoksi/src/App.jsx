@@ -10,8 +10,11 @@ import Psda from "./sections/Psda";
 import Kominfo from "./sections/Kominfo";
 import Closing from "./sections/Closing";
 import ThemeToggle from "./components/ThemeToggle";
+import useReveal from "./hooks/useReveal";
 
 function App() {
+  useReveal();
+
   return (
     <>
       <ThemeToggle />
@@ -29,3 +32,5 @@ function App() {
     </>
   );
 }
+
+export default App;
